@@ -1,7 +1,7 @@
 bun
 ---
 
-A Bun image
+A minimal and [secure](https://github.com/tuananh/bun-container-image/security/advisories) container image for bun, available in both `amd64` and `arm64`. To use run:
 
 ```
 docker run --rm -ti ghcr.io/tuananh/bun help
