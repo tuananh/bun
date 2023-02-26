@@ -1,10 +1,10 @@
-bun
----
+bun-canary
+----------
 
-A minimal and [secure](https://github.com/tuananh/bun-container-image/security/advisories) container image for bun, available in both `amd64` and `arm64`. To use run:
+A minimal and [secure](https://github.com/tuananh/bun-container-image/security/advisories) container image for [bun.sh](https://bun.sh/), available in both `amd64` and `arm64`. To use run:
 
 ```
-docker run --rm -ti ghcr.io/tuananh/bun help
+docker run --rm -ti ghcr.io/tuananh/bun-canary help
 ```
 
 This is a temporary solution until we can package all bun's dependencies and build everything from source.
