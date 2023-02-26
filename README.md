@@ -7,9 +7,11 @@ A minimal and [secure](https://github.com/tuananh/bun-container-image/security/a
 docker run --rm -ti ghcr.io/tuananh/bun-canary help
 ```
 
-This is a temporary solution until we can package all bun's dependencies and build everything from source.
-
 ![](./bun.png)
+
+## Notice
+
+This is a temporary solution until we can package all bun's dependencies and build everything from source.
 
 ## License
 
