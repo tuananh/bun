@@ -1,0 +1,50 @@
+package:
+  name: bun
+  version: 0.5.7
+  epoch: 0
+  description: "Incredibly fast JavaScript runtime, bundler, transpiler and package manager."
+  target-architecture:
+    - all
+  copyright:
+    - paths:
+        - "*"
+      attestation: TODO
+      license: MIT
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+    packages:
+      - busybox
+      - ca-certificates-bundle
+      # - build-base
+      # - automake
+      - zip
+
+pipeline:
+  - if: ${{build.arch}} == 'x86_64'
+    uses: fetch
+    with:
+      uri: https://github.com/oven-sh/bun/releases/download/bun-v${{package.version}}/bun-linux-x64.zip
+      expected-sha256: b8e5474088ef656d06aaffc62e5bdb5e5e5b0dc9f047cd003f5954276bf66683
+      strip-components: 0
+      extract: false
+  - if: ${{build.arch}} == 'aarch64'
+    uses: fetch
+    with:
+      uri: https://github.com/oven-sh/bun/releases/download/bun-v${{package.version}}/bun-linux-aarch64.zip
+      expected-sha256: 5d251b7d1923a3bca23eb3dafcca77d16a2515ec7e12fce2a61badd6c29f9431
+      strip-components: 0
+      extract: false
+  - if: ${{build.arch}} == 'x86_64'
+    runs: |
+      unzip bun-linux-x64.zip
+      cd bun-linux-x64
+      install -m755 -D ./bun "${{targets.destdir}}"/usr/bin/bun
+  - if: ${{build.arch}} == 'aarch64'
+    runs: |
+      unzip bun-linux-aarch64.zip
+      cd bun-linux-aarch64
+      install -m755 -D ./bun "${{targets.destdir}}"/usr/bin/bun
