@@ -2,7 +2,7 @@ package:
   name: bun
   version: 0.5.7
   epoch: 0
-  description: "Incredibly fast JavaScript runtime, bundler, transpiler and package manager."
+  description: "Incredibly fast JavaScript runtime, bundler, transpiler and package manager"
   target-architecture:
     - all
   copyright:
@@ -19,8 +19,6 @@ environment:
     packages:
       - busybox
       - ca-certificates-bundle
-      # - build-base
-      # - automake
       - zip
 
 pipeline:
