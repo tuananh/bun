@@ -46,7 +46,7 @@ jobs:
           archs: x86_64,aarch64
 
       - uses: chainguard-images/actions/apko-publish@e61cb0631c83e84cadc21337be090ad06bf05da2
-        id: apko
+        id: apko_latest
         with:
           config: latest.apko.yaml
           tag: ghcr.io/tuananh/bun:latest
@@ -54,7 +54,7 @@ jobs:
           source-date-epoch: ${{ steps.snapshot-date.outputs.epoch }}
       
       - uses: chainguard-images/actions/apko-publish@e61cb0631c83e84cadc21337be090ad06bf05da2
-        id: apko
+        id: apko_latest_dev
         with:
           config: latest-dev.apko.yaml
           tag: ghcr.io/tuananh/bun:latest-dev
@@ -70,12 +70,12 @@ jobs:
 
       - shell: bash
         run: |
-          COSIGN_EXPERIMENTAL=true cosign sign ${{ steps.apko.outputs.digest }}
+          COSIGN_EXPERIMENTAL=true cosign sign ${{ steps.apko_latest.outputs.digest }}
           
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ${{ steps.apko.outputs.digest }}
+          image-ref: ${{ steps.apko_latest.outputs.digest }}
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
@@ -92,7 +92,7 @@ jobs:
       #   env:
       #     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       #   with:
-      #     image: ${{ steps.apko.outputs.digest }}
+      #     image: ${{ steps.apko_latest.outputs.digest }}
       #     sarif: true
       # - uses: github/codeql-action/upload-sarif@v2
       #   with:
