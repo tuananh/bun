@@ -48,7 +48,7 @@ jobs:
       - uses: chainguard-images/actions/apko-publish@e61cb0631c83e84cadc21337be090ad06bf05da2
         id: apko
         with:
-          tag: ghcr.io/tuananh/bun-canary:latest
+          tag: ghcr.io/tuananh/bun:latest
           keyring-append: /github/workspace/melange.rsa.pub
           source-date-epoch: ${{ steps.snapshot-date.outputs.epoch }}
 
