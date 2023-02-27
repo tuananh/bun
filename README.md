@@ -9,6 +9,10 @@ docker run --rm -ti ghcr.io/tuananh/bun help
 
 ![](./bun.png)
 
+It's a bit smaller than the official image too.
+
+![](./bun2.png)
+
 ## Notice
 
 This is a temporary solution until we can package all bun's dependencies and build everything from source.
