@@ -7,9 +7,6 @@ contents:
   packages:
     - wolfi-baselayout
     - bun@local
-    - bash
-    - busybox
-
 
 accounts:
   groups:
