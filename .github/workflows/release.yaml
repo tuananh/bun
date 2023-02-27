@@ -58,7 +58,7 @@ jobs:
         with:
           config: latest-dev.apko.yaml
           tag: ghcr.io/tuananh/bun:latest-dev
-          tag-suffix: dev
+          tag-suffix: -dev
           keyring-append: /github/workspace/melange.rsa.pub
           source-date-epoch: ${{ steps.snapshot-date.outputs.epoch }}
 
