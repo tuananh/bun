@@ -50,6 +50,8 @@ jobs:
         with:
           config: latest.apko.yaml
           tag: ghcr.io/tuananh/bun:latest
+          package-version-tag: bun
+          package-version-tag-stem: true
           keyring-append: /github/workspace/melange.rsa.pub
           source-date-epoch: ${{ steps.snapshot-date.outputs.epoch }}
       
@@ -59,6 +61,8 @@ jobs:
           config: latest-dev.apko.yaml
           tag: ghcr.io/tuananh/bun:latest-dev
           tag-suffix: -dev
+          package-version-tag: bun
+          package-version-tag-stem: true
           keyring-append: /github/workspace/melange.rsa.pub
           source-date-epoch: ${{ steps.snapshot-date.outputs.epoch }}
 
